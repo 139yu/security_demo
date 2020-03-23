@@ -49,10 +49,11 @@
                          logout-success-url="/login.jsp"/>
     </security:http>
     <!--配置密码加密对象到IOC容器中-->
-    <!--<bean id="passwordEncode" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
--->
+    <bean id="passwordEncode" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
     <!--配置认证信息来源-->
     <security:authentication-manager>
-        <security:authentication-provider user-service-ref="userServiceImpl"/>
+        <security:authentication-provider user-service-ref="userServiceImpl">
+            <security:password-encoder ref="passwordEncode"/>
+        </security:authentication-provider>
     </security:authentication-manager>
 </beans>

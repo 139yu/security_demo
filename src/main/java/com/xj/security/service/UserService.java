@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface UserService extends UserDetailsService {
 
-    //public void save(SysUser user);
+    public void save(SysUser user);
 
     public List<SysUser> findAll();
 
